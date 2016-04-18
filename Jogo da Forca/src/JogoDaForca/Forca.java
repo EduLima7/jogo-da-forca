@@ -19,6 +19,7 @@ public class Forca extends javax.swing.JFrame {
         this.jogo=j;
         hint.setText(String.valueOf(dica));
         word.setText(p);
+        this.vet=vet;
     }
     jogar jogo;
     char[] vet;
