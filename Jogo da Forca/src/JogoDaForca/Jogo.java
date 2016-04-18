@@ -25,14 +25,25 @@ public class Jogo {
     }
 }
 class jogar{
-    String[] opcoes = {"Paises", "Marcas Famosas","Carros"};
+    String[] opcoes = {"Paises", "Marcas Famosas","Carros","Times de Futebol"};
     Object resposta;
+    int dificuldade=1,lifes=5;
     void jogando(){
-        
+        while (lifes!=0){
+            
+        }
     }
     String[] jogo(int classe,int dif)throws IOException{
         String s=palavraaleatoria(classealeatoria(classe));
         String palavra[]=s.split(" dica ");
+        dificuldade=dif;
+        if(dif==2){
+            palavra[1]="Dica não acessivel nessa dificuldade";
+        }
+        if(dif==3){
+            palavra[1]="Dica não acessivel nessa dificuldade";
+            lifes=3;
+        }
         palavra[0]=palavra[0].toLowerCase();
         char vet[]=palavra[0].toCharArray();
         for (int i = 0; i < vet.length; i++) {
@@ -51,14 +62,15 @@ class jogar{
     void gravarnovodado()throws IOException{
         String s=JOptionPane.showInputDialog("Digite o nome do novo objeto");
         String c=Resposta();
-        gravardado(s,c);
+        String d=JOptionPane.showInputDialog("Dica da nova palavra(Ex: É inglesa,fabrica roupas,...)");
+        gravardado(s,c,d);
     }
-    void gravardado(String nome,String Class) throws IOException{ 
+    void gravardado(String nome,String Class,String dica) throws IOException{ 
         if(encontrarpalavra(nome,Class)){
                 FileWriter arq = new FileWriter("C:\\Users\\Notebook\\Documents\\NetBeansProjects\\Jogo da Forca\\Banco\\"+Class,true);
                 BufferedWriter gravArq = new BufferedWriter(arq);
                 gravArq.newLine();
-                gravArq.write(nome);
+                gravArq.write(nome+" dica "+dica);
                 gravArq.close();
                 arq.close();
             }
@@ -85,6 +97,15 @@ class jogar{
             if (resposta == "Paises") {
                 return "Paises.txt";
             }
+            if (resposta == "Carros") {
+                return "Carros.txt";
+            }
+            if (resposta == "Times de Futebol") {
+                return "Times de Futebol.txt";
+            }
+            if (resposta == "Marcas Famosas") {
+                return "Marcas Famosas.txt";
+            }
             return null;
     }
     String classealeatoria(int i){
@@ -98,6 +119,8 @@ class jogar{
                     return "Carros.txt";
                 case 3:
                     return "Marcas Famosas.txt";
+                case 4:
+                    return "Times de Futebol.txt";
             }
         }
         else{
@@ -108,6 +131,8 @@ class jogar{
                     return "Carros.txt";
                 case 3:
                     return "Marcas Famosas.txt";
+                case 4:
+                    return "Times de Futebol.txt";
             }
         }
         return null;

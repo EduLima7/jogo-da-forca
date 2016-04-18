@@ -43,7 +43,7 @@ public class Menu extends javax.swing.JFrame {
         Marcas = new javax.swing.JRadioButton();
         Todos = new javax.swing.JRadioButton();
         Carros = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        Times = new javax.swing.JRadioButton();
         criarpalavra = new javax.swing.JButton();
         Jogar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -86,11 +86,11 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup2.add(jRadioButton5);
-        jRadioButton5.setText("jRadioButton5");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(Times);
+        Times.setText("Times de Futebol");
+        Times.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
+                TimesActionPerformed(evt);
             }
         });
 
@@ -172,9 +172,9 @@ public class Menu extends javax.swing.JFrame {
                                         .addComponent(Marcas)
                                         .addGap(18, 18, 18)
                                         .addComponent(Carros)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(jRadioButton5)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(Times)))
+                .addContainerGap(49, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(criarpalavra)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -197,7 +197,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(Paises)
                     .addComponent(Marcas)
                     .addComponent(Carros)
-                    .addComponent(jRadioButton5)
+                    .addComponent(Times)
                     .addComponent(Todos))
                 .addGap(13, 13, 13)
                 .addComponent(Jogar)
@@ -253,9 +253,11 @@ public class Menu extends javax.swing.JFrame {
         c=1;
     }//GEN-LAST:event_PaisesActionPerformed
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+    private void TimesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+        Jogar.setEnabled(true);
+        c=4;
+    }//GEN-LAST:event_TimesActionPerformed
 
     private void HardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HardActionPerformed
         // TODO add your handling code here:
@@ -327,12 +329,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JRadioButton Marcas;
     private javax.swing.JRadioButton Medio;
     private javax.swing.JRadioButton Paises;
+    private javax.swing.JRadioButton Times;
     private javax.swing.JRadioButton Todos;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton criarpalavra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JRadioButton jRadioButton5;
     // End of variables declaration//GEN-END:variables
 }
