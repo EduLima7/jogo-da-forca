@@ -13,6 +13,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.text.Normalizer;
+import java.util.Arrays;
 import java.util.Random;
 /**
  *
@@ -29,8 +31,10 @@ class jogar{
     boolean[] acertos;
     Object resposta;
     int dificuldade=1,lifes=5;
-    void modificarvida(){
-        lifes--;
+    void verificarvida(){
+        if(lifes==0){
+            
+        }
     }
     String jogando(char letra,char[] palavra){
         boolean s=true;
@@ -41,7 +45,7 @@ class jogar{
                     s=false;
                 }
                 if(s){
-                    modificarvida();
+                    lifes--;
                 }
             }
             return palavraatualizada(acertos, palavra);
@@ -59,7 +63,7 @@ class jogar{
                 palavraatualizada[i]='_';
             }
         }
-        newword=palavraatualizada.toString();
+        newword=Arrays.toString(palavraatualizada);
         return newword;
     }
     String[] jogo(int classe,int dif)throws IOException{
@@ -73,7 +77,8 @@ class jogar{
             palavra[1]="Dica não acessivel nessa dificuldade";
             lifes=3;
         }
-        palavra[0]=palavra[0].toLowerCase();
+        palavra[0]=palavra[0].toLowerCase(); // deixa a palavra com caixa baixa
+        palavra[0]=Normalizer.normalize(palavra[0],Normalizer.Form.NFD); // retira os acentos da palavra
         char vet[]=palavra[0].toCharArray();
         for (int i = 0; i < vet.length; i++) {
             System.out.print(vet[i]);

@@ -6,6 +6,7 @@
 package JogoDaForca;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  *
@@ -234,17 +235,23 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             String [] a=jogo.jogo(c, d);
-            String word;
+            String word="";
             char vet[]=jogo.tochar(a);
-            char vet2[]=new char [vet.length];
             jogo.acertos= new boolean [vet.length];
             for (int i = 0; i < vet.length; i++) {
-                jogo.acertos[i]=false;
+                if (vet[i]=='-'|| vet[i]=='.'|| vet[i]==' '|| vet[i]==',') {
+                    jogo.acertos[i]=true;
+                }else{
+                    jogo.acertos[i]=false;
+                }
             }
             for (int i = 0; i < vet.length; i++) {
-                vet2[i]='_';
+                if(jogo.acertos[i]){
+                    word=word+vet[i]+" ";
+                }else{
+                    word=word+"_ ";
+                }
             }
-            word=vet2.toString();
             Forca f = new Forca(jogo,a[1],a[0],vet,word);
             f.setVisible(true);
         }

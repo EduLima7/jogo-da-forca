@@ -814,6 +814,7 @@ public class Forca extends javax.swing.JFrame {
         // TODO add your handling code here:
         buttonGroup1.getSelection().setEnabled(false);
         word.setText(jogo.jogando(letra, vet));
+        yes.setEnabled(false);
     }//GEN-LAST:event_yesActionPerformed
 
     /**
