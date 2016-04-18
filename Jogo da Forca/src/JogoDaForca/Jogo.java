@@ -26,12 +26,41 @@ public class Jogo {
 }
 class jogar{
     String[] opcoes = {"Paises", "Marcas Famosas","Carros","Times de Futebol"};
+    boolean[] acertos;
     Object resposta;
     int dificuldade=1,lifes=5;
-    void jogando(){
-        while (lifes!=0){
-            
+    void modificarvida(){
+        lifes--;
+    }
+    String jogando(char letra,char[] palavra){
+        boolean s=true;
+        if (lifes!=0){
+            for (int i = 0; i < palavra.length; i++) {
+                if (letra==palavra[i]) {
+                    acertos[i]=true;
+                    s=false;
+                }
+                if(s){
+                    modificarvida();
+                }
+            }
+            return palavraatualizada(acertos, palavra);
         }
+        return "Você esta trapaceando?";
+    }
+    String palavraatualizada(boolean[] hits,char[] palavra){
+        String newword;
+        char palavraatualizada[] = new char [palavra.length];
+        for (int i = 0; i < palavra.length; i++) {
+            if(hits[i]){
+                palavraatualizada[i]=palavra[i];
+            }
+            else{
+                palavraatualizada[i]='_';
+            }
+        }
+        newword=palavraatualizada.toString();
+        return newword;
     }
     String[] jogo(int classe,int dif)throws IOException{
         String s=palavraaleatoria(classealeatoria(classe));
@@ -79,11 +108,9 @@ class jogar{
         FileReader ler = new FileReader("C:\\Users\\Notebook\\Documents\\NetBeansProjects\\Jogo da Forca\\Banco\\"+Class);
         BufferedReader ler2=new BufferedReader(ler);
         String linha = ler2.readLine();
-        System.out.println("while");
         boolean a=true;
         while (linha!=null && a){
             if (linha.contains(nome)){
-                System.out.println("No loop");
                 a=false;
             }
             linha=ler2.readLine();

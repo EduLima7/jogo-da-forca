@@ -27,7 +27,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
+              <Component id="yes" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -126,19 +131,20 @@
                           </Group>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="Palavra" min="-2" pref="144" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="word" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
-              <Component id="yes" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="Palavra" min="-2" pref="144" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -150,7 +156,12 @@
                   <Component id="jLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="hint" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="98" max="32767" attributes="0"/>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="word" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="A" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="B" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -220,6 +231,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="A"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="B">
       <Properties>
@@ -228,6 +242,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="B"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="C">
       <Properties>
@@ -236,6 +253,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="C"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="D">
       <Properties>
@@ -244,6 +264,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="D"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="E">
       <Properties>
@@ -274,6 +297,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="G"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="H">
       <Properties>
@@ -282,6 +308,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="H"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="I">
       <Properties>
@@ -345,6 +374,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="M"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="N">
       <Properties>
@@ -353,6 +385,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="N"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="O">
       <Properties>
@@ -361,6 +396,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="O"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="P">
       <Properties>
@@ -369,6 +407,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="P"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="Q">
       <Properties>
@@ -377,6 +418,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Q"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="QActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="R">
       <Properties>
@@ -385,6 +429,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="R"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="S">
       <Properties>
@@ -393,6 +440,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="S"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="T">
       <Properties>
@@ -401,6 +451,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="T"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="U">
       <Properties>
@@ -453,6 +506,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Y"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="YActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="Z">
       <Properties>
@@ -472,6 +528,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zeroActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="um">
       <Properties>
@@ -480,6 +539,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="umActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="dois">
       <Properties>
@@ -488,6 +550,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="2"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="doisActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="tres">
       <Properties>
@@ -496,6 +561,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="3"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tresActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="quatro">
       <Properties>
@@ -504,6 +572,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="4"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quatroActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="cinco">
       <Properties>
@@ -512,6 +583,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="5"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cincoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="seis">
       <Properties>
@@ -567,6 +641,23 @@
     <Component class="javax.swing.JButton" name="yes">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confima a letra?"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="word">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wordActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Palavra:"/>
       </Properties>
     </Component>
   </SubComponents>

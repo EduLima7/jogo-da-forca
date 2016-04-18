@@ -88,6 +88,7 @@ public class Menu extends javax.swing.JFrame {
 
         buttonGroup2.add(Times);
         Times.setText("Times de Futebol");
+        Times.setEnabled(false);
         Times.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TimesActionPerformed(evt);
@@ -233,7 +234,18 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             String [] a=jogo.jogo(c, d);
-            Forca f = new Forca(jogo,a[1],a[0],jogo.tochar(a));
+            String word;
+            char vet[]=jogo.tochar(a);
+            char vet2[]=new char [vet.length];
+            jogo.acertos= new boolean [vet.length];
+            for (int i = 0; i < vet.length; i++) {
+                jogo.acertos[i]=false;
+            }
+            for (int i = 0; i < vet.length; i++) {
+                vet2[i]='_';
+            }
+            word=vet2.toString();
+            Forca f = new Forca(jogo,a[1],a[0],vet,word);
             f.setVisible(true);
         }
         catch (IOException e){
@@ -265,6 +277,7 @@ public class Menu extends javax.swing.JFrame {
         Paises.setEnabled(true);
         Marcas.setEnabled(true);
         Todos.setEnabled(true);
+        Times.setEnabled(true);
         d=3;
     }//GEN-LAST:event_HardActionPerformed
 
@@ -274,6 +287,7 @@ public class Menu extends javax.swing.JFrame {
         Paises.setEnabled(true);
         Marcas.setEnabled(true);
         Todos.setEnabled(true);
+        Times.setEnabled(true);
         d=2;
     }//GEN-LAST:event_MedioActionPerformed
 
@@ -283,6 +297,7 @@ public class Menu extends javax.swing.JFrame {
         Paises.setEnabled(true);
         Marcas.setEnabled(true);
         Todos.setEnabled(true);
+        Times.setEnabled(true);
         d=1;
     }//GEN-LAST:event_EasyActionPerformed
 

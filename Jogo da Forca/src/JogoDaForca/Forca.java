@@ -14,14 +14,16 @@ public class Forca extends javax.swing.JFrame {
     /**
      * Creates new form Forca
      */
-    public Forca(jogar j,String dica,String palavra,char[] vet) {
+    public Forca(jogar j,String dica,String palavra,char[] vet,String p) {
         initComponents();
         this.jogo=j;
         hint.setText(String.valueOf(dica));
+        word.setText(p);
     }
     jogar jogo;
     char[] vet;
     String dica,palavra;
+    char letra;
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,6 +76,8 @@ public class Forca extends javax.swing.JFrame {
         hint = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         yes = new javax.swing.JButton();
+        word = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,15 +89,35 @@ public class Forca extends javax.swing.JFrame {
 
         buttonGroup1.add(A);
         A.setText("A");
+        A.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(B);
         B.setText("B");
+        B.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(C);
         C.setText("C");
+        C.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(D);
         D.setText("D");
+        D.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(E);
         E.setText("E");
@@ -113,9 +137,19 @@ public class Forca extends javax.swing.JFrame {
 
         buttonGroup1.add(G);
         G.setText("G");
+        G.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(H);
         H.setText("H");
+        H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(I);
         I.setText("I");
@@ -159,27 +193,67 @@ public class Forca extends javax.swing.JFrame {
 
         buttonGroup1.add(M);
         M.setText("M");
+        M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(N);
         N.setText("N");
+        N.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(O);
         O.setText("O");
+        O.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(P);
         P.setText("P");
+        P.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(Q);
         Q.setText("Q");
+        Q.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(R);
         R.setText("R");
+        R.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(S);
         S.setText("S");
+        S.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(T);
         T.setText("T");
+        T.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(U);
         U.setText("U");
@@ -215,6 +289,11 @@ public class Forca extends javax.swing.JFrame {
 
         buttonGroup1.add(Y);
         Y.setText("Y");
+        Y.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                YActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(Z);
         Z.setText("Z");
@@ -226,21 +305,51 @@ public class Forca extends javax.swing.JFrame {
 
         buttonGroup1.add(zero);
         zero.setText("0");
+        zero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zeroActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(um);
         um.setText("1");
+        um.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                umActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(dois);
         dois.setText("2");
+        dois.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doisActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(tres);
         tres.setText("3");
+        tres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tresActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(quatro);
         quatro.setText("4");
+        quatro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quatroActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(cinco);
         cinco.setText("5");
+        cinco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cincoActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(seis);
         seis.setText("6");
@@ -278,11 +387,30 @@ public class Forca extends javax.swing.JFrame {
         jLabel2.setText("Já Sabe? Pode arriscar aqui ->");
 
         yes.setText("Confima a letra?");
+        yes.setEnabled(false);
+        yes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yesActionPerformed(evt);
+            }
+        });
+
+        word.setEditable(false);
+        word.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wordActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Palavra:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(248, 248, 248)
+                .addComponent(yes)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -368,17 +496,18 @@ public class Forca extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(X)
                                 .addGap(18, 18, 18)
-                                .addComponent(W))))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(248, 248, 248)
-                .addComponent(yes)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(Palavra, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(138, 138, 138))
+                                .addComponent(W))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(Palavra, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(138, 138, 138))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(word)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -387,7 +516,11 @@ public class Forca extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(hint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(word, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(A)
                     .addComponent(B)
@@ -443,72 +576,244 @@ public class Forca extends javax.swing.JFrame {
 
     private void PalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PalavraActionPerformed
         // TODO add your handling code here:
+        if (palavra==Palavra.getText()){
+            word.setText(palavra);
+        }
+        else{
+            jogo.lifes--;
+        }
     }//GEN-LAST:event_PalavraActionPerformed
 
     private void IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IActionPerformed
         // TODO add your handling code here:
+        letra='i';
+        yes.setEnabled(true);
     }//GEN-LAST:event_IActionPerformed
 
     private void LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LActionPerformed
         // TODO add your handling code here:
+        letra='l';
+        yes.setEnabled(true);
     }//GEN-LAST:event_LActionPerformed
 
     private void KActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KActionPerformed
         // TODO add your handling code here:
+        letra='k';
+        yes.setEnabled(true);
     }//GEN-LAST:event_KActionPerformed
 
     private void JActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JActionPerformed
         // TODO add your handling code here:
+        letra='j';
+        yes.setEnabled(true);
     }//GEN-LAST:event_JActionPerformed
 
     private void WActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WActionPerformed
         // TODO add your handling code here:
+        letra='w';
+        yes.setEnabled(true);
     }//GEN-LAST:event_WActionPerformed
 
     private void UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UActionPerformed
         // TODO add your handling code here:
+        letra='u';
+        yes.setEnabled(true);
     }//GEN-LAST:event_UActionPerformed
 
     private void VActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VActionPerformed
         // TODO add your handling code here:
+        letra='v';
+        yes.setEnabled(true);
     }//GEN-LAST:event_VActionPerformed
 
     private void XActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XActionPerformed
         // TODO add your handling code here:
+        letra='x';
+        yes.setEnabled(true);
     }//GEN-LAST:event_XActionPerformed
 
     private void noveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noveActionPerformed
         // TODO add your handling code here:
+        letra='9';
+        yes.setEnabled(true);
     }//GEN-LAST:event_noveActionPerformed
 
     private void seisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisActionPerformed
         // TODO add your handling code here:
+        letra='6';
+        yes.setEnabled(true);
     }//GEN-LAST:event_seisActionPerformed
 
     private void seteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seteActionPerformed
         // TODO add your handling code here:
+        letra='7';
+        yes.setEnabled(true);
     }//GEN-LAST:event_seteActionPerformed
 
     private void oitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oitoActionPerformed
         // TODO add your handling code here:
+        letra='8';
+        yes.setEnabled(true);
     }//GEN-LAST:event_oitoActionPerformed
 
     private void EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EActionPerformed
         // TODO add your handling code here:
+        letra='e';
+        yes.setEnabled(true);
     }//GEN-LAST:event_EActionPerformed
 
     private void FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FActionPerformed
         // TODO add your handling code here:
+        letra='f';
+        yes.setEnabled(true);
     }//GEN-LAST:event_FActionPerformed
 
     private void ZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZActionPerformed
         // TODO add your handling code here:
+        letra='z';
+        yes.setEnabled(true);
     }//GEN-LAST:event_ZActionPerformed
 
     private void hintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hintActionPerformed
         // TODO add your handling code here:
         hint.setText(String.valueOf(dica));
     }//GEN-LAST:event_hintActionPerformed
+
+    private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
+        // TODO add your handling code here:
+        letra='a';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_AActionPerformed
+
+    private void BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BActionPerformed
+        // TODO add your handling code here:
+        letra='b';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_BActionPerformed
+
+    private void CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CActionPerformed
+        // TODO add your handling code here:
+        letra='c';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_CActionPerformed
+
+    private void DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DActionPerformed
+        // TODO add your handling code here:
+        letra='d';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_DActionPerformed
+
+    private void GActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GActionPerformed
+        // TODO add your handling code here:
+        letra='g';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_GActionPerformed
+
+    private void HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HActionPerformed
+        // TODO add your handling code here:
+        letra='h';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_HActionPerformed
+
+    private void MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MActionPerformed
+        // TODO add your handling code here:
+        letra='m';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_MActionPerformed
+
+    private void NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NActionPerformed
+        // TODO add your handling code here:
+        letra='n';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_NActionPerformed
+
+    private void OActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OActionPerformed
+        // TODO add your handling code here:
+        letra='o';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_OActionPerformed
+
+    private void PActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PActionPerformed
+        // TODO add your handling code here:
+        letra='p';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_PActionPerformed
+
+    private void QActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QActionPerformed
+        // TODO add your handling code here:
+        letra='q';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_QActionPerformed
+
+    private void RActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RActionPerformed
+        // TODO add your handling code here:
+        letra='r';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_RActionPerformed
+
+    private void SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SActionPerformed
+        // TODO add your handling code here:
+        letra='s';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_SActionPerformed
+
+    private void TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TActionPerformed
+        // TODO add your handling code here:
+        letra='t';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_TActionPerformed
+
+    private void YActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YActionPerformed
+        // TODO add your handling code here:
+        letra='y';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_YActionPerformed
+
+    private void zeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zeroActionPerformed
+        // TODO add your handling code here:letra='a';
+        letra='0';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_zeroActionPerformed
+
+    private void umActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_umActionPerformed
+        // TODO add your handling code here:
+        letra='1';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_umActionPerformed
+
+    private void doisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doisActionPerformed
+        // TODO add your handling code here:
+        letra='2';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_doisActionPerformed
+
+    private void tresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tresActionPerformed
+        // TODO add your handling code here:
+        letra='3';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_tresActionPerformed
+
+    private void quatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quatroActionPerformed
+        // TODO add your handling code here:
+        letra='4';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_quatroActionPerformed
+
+    private void cincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoActionPerformed
+        // TODO add your handling code here:
+        letra='5';
+        yes.setEnabled(true);
+    }//GEN-LAST:event_cincoActionPerformed
+
+    private void wordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_wordActionPerformed
+
+    private void yesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesActionPerformed
+        // TODO add your handling code here:
+        buttonGroup1.getSelection().setEnabled(false);
+        word.setText(jogo.jogando(letra, vet));
+    }//GEN-LAST:event_yesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -580,6 +885,7 @@ public class Forca extends javax.swing.JFrame {
     private javax.swing.JTextField hint;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JRadioButton nove;
     private javax.swing.JRadioButton oito;
     private javax.swing.JRadioButton quatro;
@@ -587,6 +893,7 @@ public class Forca extends javax.swing.JFrame {
     private javax.swing.JRadioButton sete;
     private javax.swing.JRadioButton tres;
     private javax.swing.JRadioButton um;
+    private javax.swing.JTextField word;
     private javax.swing.JButton yes;
     private javax.swing.JRadioButton zero;
     // End of variables declaration//GEN-END:variables
