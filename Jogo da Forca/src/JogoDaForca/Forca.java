@@ -5,6 +5,9 @@
  */
 package JogoDaForca;
 
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Notebook
@@ -20,12 +23,13 @@ public class Forca extends javax.swing.JFrame {
         hint.setText(String.valueOf(dica));
         word.setText(p);
         this.vet=vet;
+        this.palavra=palavra;
     }
     jogar jogo;
     char[] vet;
     String dica,palavra;
     char letra;
-   
+    boolean t=false;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -409,17 +413,8 @@ public class Forca extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(248, 248, 248)
-                .addComponent(yes)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(hint)
-                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -446,7 +441,7 @@ public class Forca extends javax.swing.JFrame {
                                         .addComponent(Y)
                                         .addGap(18, 18, 18)
                                         .addComponent(Z)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(18, 18, Short.MAX_VALUE)
                                         .addComponent(zero)
                                         .addGap(18, 18, 18)
                                         .addComponent(um)))
@@ -454,11 +449,11 @@ public class Forca extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(dois)
                                     .addComponent(Q))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(F)
-                                .addGap(24, 24, 24)
+                                .addGap(18, 18, 18)
                                 .addComponent(G)
                                 .addGap(18, 18, 18)
                                 .addComponent(H)
@@ -472,7 +467,7 @@ public class Forca extends javax.swing.JFrame {
                                 .addComponent(L))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(tres)
-                                .addGap(26, 26, 26)
+                                .addGap(18, 18, 18)
                                 .addComponent(quatro)
                                 .addGap(18, 18, 18)
                                 .addComponent(cinco)
@@ -498,17 +493,26 @@ public class Forca extends javax.swing.JFrame {
                                 .addComponent(X)
                                 .addGap(18, 18, 18)
                                 .addComponent(W))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(hint))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(word)))
+                        .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(248, 248, 248)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(Palavra, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(138, 138, 138))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(word)
-                        .addContainerGap())))
+                        .addComponent(Palavra, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(yes))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -577,11 +581,16 @@ public class Forca extends javax.swing.JFrame {
 
     private void PalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PalavraActionPerformed
         // TODO add your handling code here:
-        if (palavra==Palavra.getText()){
+        if (Palavra.getText().equals(palavra)){
             word.setText(palavra);
+            t=true;
+            yes.setEnabled(true);
+            yes.doClick();
         }
         else{
             jogo.lifes--;
+            System.out.println(Palavra.getText());
+            System.out.println(jogo.lifes);
         }
     }//GEN-LAST:event_PalavraActionPerformed
 
@@ -812,9 +821,61 @@ public class Forca extends javax.swing.JFrame {
 
     private void yesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesActionPerformed
         // TODO add your handling code here:
-        buttonGroup1.getSelection().setEnabled(false);
-        word.setText(jogo.jogando(letra, vet));
+        boolean m=false;
+        if (!t){
+             buttonGroup1.getSelection().setEnabled(false);
+             word.setText(jogo.jogando(letra, vet));
+        }
         yes.setEnabled(false);
+        if (jogo.lifes==0){
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null,"A palavra era: "+palavra,"Você Perdeu :( ",0);
+            int v=JOptionPane.showConfirmDialog(null,"Deseja tentar novamente ?", "", 0, 1);
+            if(v==0){
+                m=true;
+            }
+        }
+        if(jogo.checarVitoria()|| m || t){
+            int c=1;
+            if(m){
+                c=0;
+            }else{
+                JOptionPane.showMessageDialog(null,"Parabéns você conseguiu!!");
+                c=JOptionPane.showConfirmDialog(null,"Deseja tentar novamente ?","Parabéns você conseguiu!!", 0);
+            }
+            if (c==0){
+                int ad []=jogo.novamente();
+                int h=ad[0],d=ad[1];
+                this.setVisible(false);
+                try{
+                    String [] a=jogo.jogo(h,d);
+                    String word="";
+                    char vet[]=jogo.tochar(a);
+                    jogo.acertos= new boolean [vet.length];
+                    for (int i = 0; i < vet.length; i++) {
+                        if (vet[i]=='-'|| vet[i]=='.'|| vet[i]==' '|| vet[i]==',') {
+                            jogo.acertos[i]=true;
+                        }else{
+                            jogo.acertos[i]=false;
+                        }
+                    }
+                    for (int i = 0; i < vet.length; i++) {
+                        if(jogo.acertos[i]){
+                            word=word+vet[i]+" ";
+                        }else{
+                            word=word+"_ ";
+                        }
+                    }
+                    Forca f = new Forca(jogo,a[1],a[0],vet,word);
+                    f.setVisible(true);
+                }
+                catch (IOException e){
+                    System.out.println("Erro");
+                }
+            }else{
+                this.setVisible(false);
+            }
+        }
     }//GEN-LAST:event_yesActionPerformed
 
     /**
@@ -847,7 +908,7 @@ public class Forca extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Forca().setVisible(true);
+                
 
             }
         });

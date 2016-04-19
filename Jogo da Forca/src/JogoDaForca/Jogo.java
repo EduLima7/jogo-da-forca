@@ -31,11 +31,21 @@ class jogar{
     boolean[] acertos;
     Object resposta;
     int dificuldade=1,lifes=5;
-    void verificarvida(){
-        if(lifes==0){
-            
+    
+    boolean checarVitoria(){
+        boolean a=false;
+        int b=0;
+        for (int i = 0; i < acertos.length; i++) {
+            if (acertos[i]) {
+                b++;
+            }
         }
+        if (b==acertos.length) {
+            a=true;
+        }
+        return a;
     }
+    
     String jogando(char letra,char[] palavra){
         boolean s=true;
         if (lifes!=0){
@@ -44,34 +54,41 @@ class jogar{
                     acertos[i]=true;
                     s=false;
                 }
-                if(s){
+            }
+            if(s){
+                    System.out.println(lifes);
                     lifes--;
-                }
             }
             return palavraatualizada(acertos, palavra);
         }
         return "Você esta trapaceando?";
     }
+    
     String palavraatualizada(boolean[] hits,char[] palavra){
-        String newword;
+        String newword="";
         char palavraatualizada[] = new char [palavra.length];
         for (int i = 0; i < palavra.length; i++) {
             if(hits[i]){
-                palavraatualizada[i]=palavra[i];
+                newword=newword+" "+palavra[i];
             }
             else{
-                palavraatualizada[i]='_';
+                newword=newword+"_ ";
             }
         }
-        newword=Arrays.toString(palavraatualizada);
+
         return newword;
     }
+    
     String[] jogo(int classe,int dif)throws IOException{
         String s=palavraaleatoria(classealeatoria(classe));
         String palavra[]=s.split(" dica ");
         dificuldade=dif;
+        if(dif==1){
+            lifes=5;
+        }
         if(dif==2){
             palavra[1]="Dica não acessivel nessa dificuldade";
+            lifes=5;
         }
         if(dif==3){
             palavra[1]="Dica não acessivel nessa dificuldade";
@@ -84,21 +101,26 @@ class jogar{
             System.out.print(vet[i]);
         }
         System.out.println(" Dica: "+palavra[1]);
+        System.out.println(lifes);
         return palavra;
     }
+    
     String getDica(String[] palavra){
           return palavra[1];    
     }
+    
     char[] tochar(String[] palavra){
         char vet[]=palavra[0].toCharArray();
         return vet;
     }
+    
     void gravarnovodado()throws IOException{
         String s=JOptionPane.showInputDialog("Digite o nome do novo objeto");
         String c=Resposta();
         String d=JOptionPane.showInputDialog("Dica da nova palavra(Ex: É inglesa,fabrica roupas,...)");
         gravardado(s,c,d);
     }
+    
     void gravardado(String nome,String Class,String dica) throws IOException{ 
         if(encontrarpalavra(nome,Class)){
                 FileWriter arq = new FileWriter("C:\\Users\\Notebook\\Documents\\NetBeansProjects\\Jogo da Forca\\Banco\\"+Class,true);
@@ -107,8 +129,12 @@ class jogar{
                 gravArq.write(nome+" dica "+dica);
                 gravArq.close();
                 arq.close();
-            }
+                JOptionPane.showMessageDialog(null, "Palavra "+nome+" adicionada com sucesso em "+Class);
+            }else{
+            JOptionPane.showMessageDialog(null, "Palavra "+nome+" ja foi adicionada em "+Class);
+        }
     }
+    
     boolean encontrarpalavra(String nome,String Class)throws IOException{
         FileReader ler = new FileReader("C:\\Users\\Notebook\\Documents\\NetBeansProjects\\Jogo da Forca\\Banco\\"+Class);
         BufferedReader ler2=new BufferedReader(ler);
@@ -124,6 +150,7 @@ class jogar{
         ler.close();
         return a;
     }
+    
     String Resposta(){
         resposta = JOptionPane.showInputDialog(null, "Qual classe o objeto pertence?", "Escolha", JOptionPane.QUESTION_MESSAGE, null, opcoes, null);
             if (resposta == "Paises") {
@@ -140,6 +167,7 @@ class jogar{
             }
             return null;
     }
+    
     String classealeatoria(int i){
         if(i==5){
             Random random = new Random();
@@ -169,6 +197,7 @@ class jogar{
         }
         return null;
     }
+    
     String palavraaleatoria(String classe) throws IOException{
         File lerf = new File("C:\\Users\\Notebook\\Documents\\NetBeansProjects\\Jogo da Forca\\Banco\\"+classe);
         LineNumberReader linhaLer = new LineNumberReader(new FileReader (lerf));
@@ -184,5 +213,37 @@ class jogar{
         ler.close();
         linhaLer.close();
         return linha;
+    }
+    int[] novamente(){
+        int[] dados=new int [2];
+        String[] options = {"Paises", "Marcas Famosas","Carros","Times de Futebol","Aleatorio"};
+        Object resp = JOptionPane.showInputDialog(null, "Qual classe o objeto pertence?", "Escolha", JOptionPane.QUESTION_MESSAGE, null, options, null);
+            if (resp == "Paises") {
+                dados[0]=1;
+            }
+            if (resp == "Carros") {
+                dados[0]=2;
+            }
+            if (resp == "Times de Futebol") {
+                dados[0]=4;
+            }
+            if (resp == "Marcas Famosas") {
+                dados[0]=3;
+            }
+            if(resp=="Aleatorio"){
+                dados[0]=5;
+            }
+            String[] options1 = {"Facil", "Medio","Dificil"};
+            resp = JOptionPane.showInputDialog(null, "Qual classe o objeto pertence?", "Escolha", JOptionPane.QUESTION_MESSAGE, null, options1, null);
+            if (resp == "Facil") {
+                dados[1]=1;
+            }
+            if (resp == "Medio") {
+                dados[1]=2;
+            }
+            if (resp == "Dificil") {
+                dados[1]=3;
+            }
+            return dados;
     }
 }
